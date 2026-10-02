@@ -1,0 +1,53 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Polished whole-article edits",
+ "type": "object",
+ "required": [
+  "edits"
+ ],
+ "properties": {
+  "edits": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "edit_id",
+     "scope",
+     "polish_note"
+    ],
+    "properties": {
+     "edit_id": {
+      "type": "string"
+     },
+     "scope": {
+      "enum": [
+       "footnote",
+       "drafted_edit",
+       "editorial_escalation"
+      ],
+      "description": "unchanged unless the item had to be converted to editorial_escalation"
+     },
+     "passage": {
+      "type": "string",
+      "description": "for drafted_edit: exact current passage (may be corrected to the exact article text)"
+     },
+     "replacement_passage": {
+      "type": "string"
+     },
+     "note_text": {
+      "type": "string"
+     },
+     "comment": {
+      "type": "string"
+     },
+     "polish_note": {
+      "type": "string",
+      "description": "what changed in the wording and why, or 'unchanged'"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

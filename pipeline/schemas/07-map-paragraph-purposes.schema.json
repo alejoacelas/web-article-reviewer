@@ -1,0 +1,41 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Paragraph purpose map",
+ "type": "object",
+ "required": [
+  "units"
+ ],
+ "properties": {
+  "units": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "purpose",
+     "argument_summary",
+     "depended_on_by"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "purpose": {
+      "type": "string"
+     },
+     "argument_summary": {
+      "type": "string"
+     },
+     "depended_on_by": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

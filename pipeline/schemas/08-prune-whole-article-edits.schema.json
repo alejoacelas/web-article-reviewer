@@ -1,0 +1,55 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Pruned whole-article edits",
+ "type": "object",
+ "required": [
+  "items"
+ ],
+ "properties": {
+  "items": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "item_id",
+     "verdict",
+     "map_field_quoted",
+     "reason"
+    ],
+    "properties": {
+     "item_id": {
+      "type": "string"
+     },
+     "verdict": {
+      "enum": [
+       "keep",
+       "reject",
+       "convert_to_escalation"
+      ]
+     },
+     "map_field_quoted": {
+      "type": "string",
+      "description": "the purpose or argument_summary text judged against, quoted"
+     },
+     "reason": {
+      "type": "string",
+      "description": "which words of the edit break (or fail to break) the quoted field"
+     },
+     "comment": {
+      "type": "string",
+      "description": "for convert_to_escalation: the anchored editor comment"
+     },
+     "conflict_with": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "ids of overlapping items and how the conflict was resolved"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

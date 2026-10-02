@@ -1,0 +1,50 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Factual targets",
+ "type": "object",
+ "required": [
+  "factual_targets"
+ ],
+ "properties": {
+  "factual_targets": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "passage",
+     "fact",
+     "role",
+     "section"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "F001, F002, ... in article order"
+     },
+     "passage": {
+      "type": "string",
+      "description": "exact text of the unit containing the claim, copied verbatim from the article: a sentence, a table cell with its row and column labels, a caption, an alt text, or a footnote sentence"
+     },
+     "fact": {
+      "type": "string",
+      "description": "a few words naming what to check"
+     },
+     "role": {
+      "enum": [
+       "current_state",
+       "record",
+       "fixed"
+      ]
+     },
+     "section": {
+      "type": "string",
+      "description": "nearest preceding heading text, or 'Notes and references' for footnotes, or 'Preamble' before the first heading"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

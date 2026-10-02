@@ -1,0 +1,11 @@
+{
+  "name": "web-article-reviewer",
+  "owner": { "name": "Alejandro Acelas" },
+  "plugins": [
+    {
+      "name": "review-article",
+      "source": "./",
+      "description": "Review a published article URL for evidence-backed updates and deliver a Google Doc with minimal suggested edits and anchored comments"
+    }
+  ]
+}

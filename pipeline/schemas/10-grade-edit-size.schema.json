@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Edit size grade",
+  "type": "object",
+  "required": ["items", "article"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item_id", "edit_class", "blast_radius", "justification"],
+        "properties": {
+          "item_id": {"type": "string"},
+          "edit_class": {"enum": ["bounded", "structural"]},
+          "blast_radius": {"enum": ["span", "sentence", "adjacent", "paragraph", "section"]},
+          "map_field_quoted": {"type": ["string", "null"], "description": "The purpose or argument_summary text that the edit breaks; null for bounded items"},
+          "justification": {"type": "string", "minLength": 1, "description": "Quote the reviewer prose or map words that justify the class and radius"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "article": {
+      "type": "object",
+      "required": ["category", "max_blast_radius", "bounded_count", "structural_count", "targets_checked", "reason"],
+      "properties": {
+        "category": {"enum": ["clean", "bounded", "structural"]},
+        "max_blast_radius": {"enum": ["span", "sentence", "adjacent", "paragraph", "section", null]},
+        "bounded_count": {"type": "integer", "minimum": 0},
+        "structural_count": {"type": "integer", "minimum": 0},
+        "targets_checked": {"type": "integer", "minimum": 0},
+        "reason": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

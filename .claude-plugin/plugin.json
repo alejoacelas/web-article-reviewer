@@ -1,0 +1,7 @@
+{
+  "name": "review-article",
+  "description": "Review a published article URL for evidence-backed updates and deliver a Google Doc with minimal suggested edits and anchored comments",
+  "version": "2.0.0",
+  "author": { "name": "Alejandro Acelas" },
+  "homepage": "https://github.com/alejoacelas/web-article-reviewer"
+}

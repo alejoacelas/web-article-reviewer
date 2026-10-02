@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "article-to-google-doc"
+version = "0.1.0"
+description = "Capture a WordPress article URL as checked Markdown and optionally create a Google Doc"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.13",
+  "lxml>=6.0",
+  "pypandoc-binary>=1.15",
+]
+
+[project.scripts]
+article-to-google-doc = "article_to_google_doc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

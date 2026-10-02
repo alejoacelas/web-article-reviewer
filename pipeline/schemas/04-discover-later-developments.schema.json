@@ -1,0 +1,93 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Later-development findings",
+ "type": "object",
+ "required": [
+  "findings",
+  "abstention_note"
+ ],
+ "properties": {
+  "findings": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "anchor_sentence",
+     "section",
+     "development",
+     "evidence",
+     "reason",
+     "reason_to_leave",
+     "other_affected_passages",
+     "published_after_update"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "D01, D02, ..."
+     },
+     "anchor_sentence": {
+      "type": "string",
+      "description": "the exact sentence whose reading changes, copied verbatim from the article"
+     },
+     "section": {
+      "type": "string"
+     },
+     "development": {
+      "type": "string",
+      "description": "what happened and how it changes what the passage establishes"
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "url",
+        "quote"
+       ],
+       "properties": {
+        "url": {
+         "type": "string"
+        },
+        "quote": {
+         "type": "string",
+         "description": "verbatim words from the source that settle the point"
+        },
+        "date": {
+         "type": "string",
+         "description": "publication or access date, YYYY-MM-DD when known"
+        }
+       },
+       "additionalProperties": false
+      }
+     },
+     "reason": {
+      "type": "string",
+      "description": "why this clears the threshold; record any doubt here"
+     },
+     "reason_to_leave": {
+      "type": "string",
+      "description": "the strongest reason an editor might reasonably leave the passage as it is"
+     },
+     "other_affected_passages": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "exact sentences elsewhere whose reading also changes; empty for a single-sentence qualification"
+     },
+     "published_after_update": {
+      "type": "boolean"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  "abstention_note": {
+   "type": "string",
+   "description": "if no findings, what you looked for and why nothing cleared the threshold; otherwise empty"
+  }
+ },
+ "additionalProperties": false
+}

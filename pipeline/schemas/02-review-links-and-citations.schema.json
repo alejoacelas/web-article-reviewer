@@ -1,0 +1,102 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Link and citation review",
+ "type": "object",
+ "required": [
+  "results"
+ ],
+ "properties": {
+  "results": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "target_id",
+     "verdict",
+     "reading",
+     "problem",
+     "reason",
+     "evidence",
+     "checked_date"
+    ],
+    "properties": {
+     "target_id": {
+      "type": "string"
+     },
+     "verdict": {
+      "enum": [
+       "change",
+       "editorial_escalation",
+       "no_change",
+       "unverifiable"
+      ]
+     },
+     "reading": {
+      "type": "string",
+      "description": "the reading a careful reader takes of the cited claim today"
+     },
+     "change_type": {
+      "enum": [
+       "replace_url",
+       "trim_sentence"
+      ],
+      "description": "for change only"
+     },
+     "new_url": {
+      "type": "string",
+      "description": "for replace_url: the complete canonical replacement URL"
+     },
+     "sentence": {
+      "type": "string",
+      "description": "for trim_sentence: the exact current sentence copied from the article"
+     },
+     "replacement_sentence": {
+      "type": "string",
+      "description": "for trim_sentence: the trimmed sentence"
+     },
+     "comment": {
+      "type": "string",
+      "description": "for editorial_escalation: the anchored comment for the editor"
+     },
+     "problem": {
+      "type": "string",
+      "description": "what is wrong, or empty for no_change"
+     },
+     "reason": {
+      "type": "string",
+      "description": "2-4 sentences; for no_change/unverifiable say what you opened and checked, or what you tried"
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "url",
+        "quote"
+       ],
+       "properties": {
+        "url": {
+         "type": "string"
+        },
+        "quote": {
+         "type": "string",
+         "description": "verbatim words from the source that settle the point"
+        },
+        "date": {
+         "type": "string",
+         "description": "publication or access date, YYYY-MM-DD when known"
+        }
+       },
+       "additionalProperties": false
+      }
+     },
+     "checked_date": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

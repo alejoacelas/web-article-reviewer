@@ -1,0 +1,77 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Validated and merged items",
+ "type": "object",
+ "required": [
+  "items"
+ ],
+ "properties": {
+  "items": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "item_id",
+     "verdict",
+     "repairs",
+     "merge",
+     "reason"
+    ],
+    "properties": {
+     "item_id": {
+      "type": "string"
+     },
+     "verdict": {
+      "enum": [
+       "accept",
+       "repaired",
+       "reject"
+      ]
+     },
+     "repairs": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "field",
+        "original",
+        "repaired",
+        "method"
+       ],
+       "properties": {
+        "field": {
+         "type": "string"
+        },
+        "original": {
+         "type": "string"
+        },
+        "repaired": {
+         "type": "string"
+        },
+        "method": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false
+      }
+     },
+     "merge": {
+      "enum": [
+       "retained",
+       "superseded",
+       "conflict_recorded"
+      ]
+     },
+     "superseded_by": {
+      "type": "string"
+     },
+     "reason": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}

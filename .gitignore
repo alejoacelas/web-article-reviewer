@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+*.egg-info/
+article-to-google-doc/.venv/
+article-to-google-doc/captures/
+runs/*/*/bundle.json
+runs/*/*/inputs/

@@ -1,0 +1,86 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Atomic fact review",
+ "type": "object",
+ "required": [
+  "results"
+ ],
+ "properties": {
+  "results": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "target_id",
+     "verdict",
+     "problem",
+     "reason",
+     "evidence",
+     "checked_date"
+    ],
+    "properties": {
+     "target_id": {
+      "type": "string"
+     },
+     "verdict": {
+      "enum": [
+       "change",
+       "editorial_escalation",
+       "no_change",
+       "unverifiable"
+      ]
+     },
+     "passage": {
+      "type": "string",
+      "description": "for change: the exact current passage being replaced, copied from the article; may extend to adjacent sentences within the same paragraph, cell, caption, or footnote when the same fact anchors them"
+     },
+     "replacement_passage": {
+      "type": "string",
+      "description": "for change: the full replacement passage, changing only what the evidence requires"
+     },
+     "comment": {
+      "type": "string",
+      "description": "for editorial_escalation: the anchored comment, including your best attempted draft marked as such and the evidence"
+     },
+     "problem": {
+      "type": "string",
+      "description": "what the article's value was anchored to and any text beyond the passage now dated with it; empty for no_change"
+     },
+     "reason": {
+      "type": "string",
+      "description": "2-4 sentences; for no_change say what you checked, for unverifiable what you searched for"
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "url",
+        "quote"
+       ],
+       "properties": {
+        "url": {
+         "type": "string"
+        },
+        "quote": {
+         "type": "string",
+         "description": "verbatim words from the source that settle the point"
+        },
+        "date": {
+         "type": "string",
+         "description": "publication or access date, YYYY-MM-DD when known"
+        }
+       },
+       "additionalProperties": false
+      }
+     },
+     "checked_date": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false
+}
